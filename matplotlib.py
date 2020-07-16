@@ -9,6 +9,9 @@ import math
 x_coords = np.arange(-10, 11, 0.2)
 y_coords = list(map(math.sin, x_coords))
 
+# pyplot.style.use("ggplot")
+pyplot.style.use("dark_background")
+
 pyplot.plot(x_coords, y_coords, "m-.")
 
 pyplot.xlim(-10, 10)
