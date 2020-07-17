@@ -5,6 +5,7 @@ import csv
 import collections
 
 from meteor import Meteor
+from map_value import map_value
 
 # import matplotlib.pyplot as plt
 from matplotlib import pyplot
@@ -84,16 +85,31 @@ def get_name_length(meteorite):
     return len(meteorite.name)
 
 
-largest = max(meteorites, key=get_name_length)
+def get_year(meteorite):
+    return meteorite.year
 
-print(largest)
+
+earliest = min(meteorites, key=get_year)
+latest = max(meteorites, key=get_year)
+
+print(earliest)
+print(latest)
 
 
 latitudes = [meteor.latitude for meteor in meteorites]
 longitudes = [meteor.longitude for meteor in meteorites]
+sizes = [map_value(meteor.mass, 0, 60000000, 10, 300) for meteor in meteorites]
+colours = []
+for meteor in meteorites:
+    colour_value = map_value(meteor.year, 860, 2013, 0, 255*2)
+    if colour_value < 256:
+        colours.append((255, 0, colour_value))
+    else:
+        colours.append((colour_value - 256, 0, 255))
 
+figure, axes = pyplot.subplots()
 
-
+axes.scatter(longitudes, latitudes, s=sizes, alpha=0.5)
 
 # Open an interactive window
 pyplot.show()

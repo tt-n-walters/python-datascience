@@ -4,13 +4,12 @@ class Meteor:
         self.id = int(kwargs["id"])
         self.mass = float(kwargs["mass (g)"])
         self.fall = kwargs["fall"]
-        self.year = kwargs["year"]
+        self.year = int(kwargs["year"][6:10])
         self.latitude = float(kwargs["reclat"])
         self.longitude = float(kwargs["reclong"])
 
-
-    def get_year(self):
-        return int(self.year[6:10])
+        if self.year > 2020:
+            raise ValueError
 
 
     def get_location(self):
@@ -18,4 +17,4 @@ class Meteor:
 
 
     def __repr__(self):
-        return self.name + ", " + str(self.mass) + ", " + str(self.get_year())
+        return self.name + ", " + str(self.id) + ", " + str(self.mass) + ", " + str(self.year)
