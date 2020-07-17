@@ -2,7 +2,7 @@ class Meteor:
     def __init__(self, **kwargs):
         self.name = kwargs["name"]
         self.id = int(kwargs["id"])
-        self.mass = kwargs["mass (g)"]
+        self.mass = float(kwargs["mass (g)"])
         self.fall = kwargs["fall"]
         self.year = kwargs["year"]
         self.latitude = float(kwargs["reclat"])
@@ -18,4 +18,4 @@ class Meteor:
 
 
     def __repr__(self):
-        pass
+        return self.name + ", " + str(self.mass) + ", " + str(self.get_year())
