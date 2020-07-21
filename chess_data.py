@@ -23,6 +23,24 @@ games_after_2018 = games[games.created_at < date_point]
 #   Iterate over all player names in the white_id and black_id columns,
 #   if the name has not been found before, add to the list of names.
 #   BONUS: Might look into the set() data structure
+player_names = []
+for name in games.white_id:
+    # is_already = False
+    # for n in player_names:
+    #     if name == n:
+    #         is_already = True
+    #         break
+    # if not is_already:
+        player_names.append(name)
+
+for name in games.black_id:
+    # if not name in player_names:
+        player_names.append(name)
+
+print(len(player_names))
+player_names = list(set(player_names))
+print(len(player_names))
+
 
 # Count wins for each player
 #   Iterate over all unique player names, for each name count the number of wins
