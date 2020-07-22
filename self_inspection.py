@@ -11,16 +11,20 @@
 
 
 class Car:
-    max_speed = 100
-    curr_speed = 0
-    acceleration = 5
+    def create_new():
+        max_speed = 100
+        curr_speed = 0
+        acceleration = 5
+        return max_speed, curr_speed, acceleration
 
-    def drive():
+    def drive(car_info):
         Car.curr_speed += Car.acceleration
         if Car.curr_speed > Car.max_speed:
             Car.curr_speed = Car.max_speed
         print("Car currently driving at", Car.curr_speed, "kph")
 
+
+toyota = Car.create_new()
 
 Car.drive()
 Car.drive()
