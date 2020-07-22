@@ -8,26 +8,37 @@
 # print("Hello world!")
 # print.__call__(str("Hello world"))
 
+print(bob.name)
+print.__call__(Person.__getattribute__(bob, "name"))
 
 
 class Car:
-    def create_new():
+    def create_new(acceleration=5):
         max_speed = 100
         curr_speed = 0
-        acceleration = 5
+        acceleration = acceleration
         return max_speed, curr_speed, acceleration
 
     def drive(car_info):
-        Car.curr_speed += Car.acceleration
-        if Car.curr_speed > Car.max_speed:
-            Car.curr_speed = Car.max_speed
-        print("Car currently driving at", Car.curr_speed, "kph")
+        car_info.curr_speed += car_info.acceleration
+        if car_info.curr_speed > car_info.max_speed:
+            car_info.curr_speed = car_info.max_speed
+        print("Car currently driving at", car_info.curr_speed, "kph")
 
 
 toyota = Car.create_new()
 
-Car.drive()
-Car.drive()
-Car.drive()
-Car.drive()
-Car.drive()
+toyota = Car.drive(toyota)
+toyota = Car.drive(toyota)
+toyota = Car.drive(toyota)
+
+# toyota.drive()
+# Car.drive(toyota)
+
+ferrari = Car.create_new(15)
+
+ferrari = Car.drive(ferrari)
+ferrari = Car.drive(ferrari)
+ferrari = Car.drive(ferrari)
+ferrari = Car.drive(ferrari)
+ferrari = Car.drive(ferrari)
