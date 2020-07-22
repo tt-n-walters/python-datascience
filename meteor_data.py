@@ -40,9 +40,6 @@ def read_file(filename):
 
 
 def process_meteorites(column_names, rows):
-    # Instantiate a new list to save every meteorite
-    meteorites = []
-
     for i in range(len(rows)):
         cells = rows[i]
 
@@ -57,18 +54,14 @@ def process_meteorites(column_names, rows):
         except ValueError:
             # Skip meteorite if any data missing
             continue
-
-        meteorites.append(meteor_object)
-
-    return meteorites
+        
+        yield meteor_object
 
 
 # Call all our functions
 column_names, rows = read_file("meteorites.csv")
 meteorites = process_meteorites(column_names, rows)
 
-print(len(rows))
-print(len(meteorites))
 
 # Find the meteorite with the greatest mass
 # largest_found = meteorites[0]
@@ -89,12 +82,14 @@ def get_year(meteorite):
     return meteorite.year
 
 
+
 earliest = min(meteorites, key=get_year)
-latest = max(meteorites, key=get_year)
-
 print(earliest)
-print(latest)
 
+# latest = max(meteorites, key=get_year)
+# print(latest)
+
+exit()
 
 latitudes = [meteor.latitude for meteor in meteorites]
 longitudes = [meteor.longitude for meteor in meteorites]
@@ -112,7 +107,7 @@ figure, axes = pyplot.subplots()
 axes.scatter(longitudes, latitudes, s=sizes, alpha=0.5)
 
 # Open an interactive window
-pyplot.show()
+# pyplot.show()
 
 # Save the image to a file
 # pyplot.savefig("output.png")
