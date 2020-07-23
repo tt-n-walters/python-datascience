@@ -15,3 +15,11 @@ Create a virtual environment
 Install the required packages to the virtual environment
 
 ```pipenv install matplotlib pandas jupyter```
+
+Start the virtual environment in its own terminal/shell
+
+```pipenv shell```
+
+Run the Jupyter Notebook
+
+```jupyter notebook```
