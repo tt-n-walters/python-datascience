@@ -12,3 +12,6 @@ Create a virtual environment
 
 ```pipenv --python 3```
 
+Install the required packages to the virtual environment
+
+```pipenv install matplotlib pandas jupyter```
