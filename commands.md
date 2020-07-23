@@ -5,5 +5,10 @@
 
 
 To install the package for creating virtual environments
+
 ```pip install pipenv```
+
+Create a virtual environment
+
+```pipenv --python 3```
 
